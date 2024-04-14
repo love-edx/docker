@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: qp-trigger # Specify the database name
+    ports:
+      - '5434:5432' # Map host port 5434 to container port 5432
+    volumes:
+      - example-db:/var/lib/postgresql/data
+
+  example:
+    build:
+      context: .
+    environment:
+      DB_USER: root
+      DB_HOST: postgres
+      DB_PASSWORD: root
+      DB_NAME: qp-trigger
+      DB_PORT: 5432 # Port should match the container port
+    depends_on:
+      - postgres
+    ports:
+      - '3000:3000'
+
+volumes:
+  example-db: {}
