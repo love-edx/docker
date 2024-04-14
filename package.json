@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon",
     "build": "rm -rf ./dist && tsc",
-    "start:prod": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

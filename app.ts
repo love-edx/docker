@@ -1,13 +1,13 @@
 import express from 'express';
 const app = express();
-const PORT = 4000;
+const PORT = 3000;
 
 async function helloWorld() {
   return { status: 200, message: 'Github PR strict action' };
 }
 
 app.get('/', async (req, res) => {
-  res.status(200).send({ status: 200, message: 'Hello world!' });
+  return res.status(200).send({ status: 200, message: 'Hello world!' });
 });
 
 app.listen(PORT, () =>
